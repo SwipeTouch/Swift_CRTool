@@ -1,0 +1,36 @@
+{
+  "name": "swipetouch-crms",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Swipetouch Change Request Management System",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "npm run dev:web",
+    "dev:clean": "sh -c 'for p in 3000 3001 3002 3003; do lsof -tiTCP:$p -sTCP:LISTEN 2>/dev/null | xargs kill -9 2>/dev/null; done; true'",
+    "dev:all": "npm run dev:clean && concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "npm run dev --workspace=@crms/api",
+    "dev:web": "npm run dev --workspace=@crms/web",
+    "build": "npm run build --workspaces",
+    "build:api": "npm run build --workspace=@crms/api",
+    "build:web": "npm run build --workspace=@crms/web",
+    "db:generate": "npm run db:generate --workspace=@crms/api",
+    "db:push": "npm run db:push --workspace=@crms/api",
+    "db:migrate": "npm run db:migrate --workspace=@crms/api",
+    "db:seed": "npm run db:seed --workspace=@crms/api",
+    "db:studio": "npm run db:studio --workspace=@crms/api",
+    "docker:up": "docker compose up -d",
+    "docker:down": "docker compose down",
+    "clean": "rm -rf node_modules apps/*/node_modules"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv-cli": "^7.4.2",
+    "typescript": "^5.4.5"
+  },
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  }
+}

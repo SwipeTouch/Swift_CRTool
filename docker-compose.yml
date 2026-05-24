@@ -1,0 +1,37 @@
+# Local development — MySQL 8 for Swipetouch CRMS
+# Usage: docker compose up -d
+# Adminer: http://localhost:8081
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: crms-mysql-dev
+    restart: unless-stopped
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: crms_dev_root
+      MYSQL_DATABASE: crms
+      MYSQL_USER: crms
+      MYSQL_PASSWORD: crms_dev
+    volumes:
+      - crms_mysql_data:/var/lib/mysql
+    command: --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ucrms", "-pcrms_dev"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  adminer:
+    image: adminer:4
+    container_name: crms-adminer-dev
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+
+volumes:
+  crms_mysql_data:
