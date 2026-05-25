@@ -12,7 +12,8 @@
     "db:push": "dotenv -e ../../.env -- prisma db push",
     "db:migrate": "dotenv -e ../../.env -- prisma migrate dev",
     "db:seed": "dotenv -e ../../.env -- tsx prisma/seed.ts",
-    "db:studio": "dotenv -e ../../.env -- prisma studio"
+    "db:studio": "dotenv -e ../../.env -- prisma studio",
+    "sql:generate": "tsx scripts/generate-import-sql.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.22.0",

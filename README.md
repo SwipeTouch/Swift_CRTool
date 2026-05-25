@@ -52,12 +52,16 @@ npm run dev:all
 apps/api/          Express API, Prisma, MySQL
 apps/web/          React SPA
 docs/design/       PRD summary, schema, workflow
+docs/technical/    Full technical documentation (ER, DFD, requirements)
+docs/sql/          MySQL import script + demo data
 ```
 
 ## Documentation
 
+- **[Technical documentation](./docs/TECHNICAL-DOCUMENTATION.md)** — Requirements, ER diagram, DFD, architecture, usability
 - [Design index](./docs/design/00-INDEX.md)
 - [Workflow & comment visibility](./docs/design/03-WORKFLOW.md)
+- [MySQL full import (schema + demo data)](./docs/sql/README.md)
 
 ## Deployment note
 

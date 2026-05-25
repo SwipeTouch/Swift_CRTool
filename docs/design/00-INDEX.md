@@ -6,6 +6,16 @@
 | [02-DATABASE-DESIGN.md](./02-DATABASE-DESIGN.md) | MySQL schema, roles, workflow |
 | [03-WORKFLOW.md](./03-WORKFLOW.md) | Change request lifecycle & visibility rules |
 
+## Technical documentation (full)
+
+See **[../TECHNICAL-DOCUMENTATION.md](../TECHNICAL-DOCUMENTATION.md)** for:
+
+- Requirements specification (functional & non-functional)
+- ER diagram (Mermaid)
+- Data flow diagrams (Context, Level-0, Level-1, Level-2)
+- System architecture & API catalogue
+- Access, login, and usability guide per role
+
 ## Tech stack (aligned with GeneralHR)
 
 - **Frontend:** React 18, TypeScript, Vite, Ant Design
