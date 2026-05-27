@@ -2,7 +2,8 @@
 // Docs: ../../../docs/design/02-DATABASE-DESIGN.md
 
 generator client {
-  provider = "prisma-client-js"
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "windows", "debian-openssl-3.0.x"]
 }
 
 datasource db {
