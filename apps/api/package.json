@@ -6,7 +6,8 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "dotenv -e ../../.env -- tsx watch src/server.ts",
-    "build": "tsc",
+    "postinstall": "prisma generate",
+    "build": "prisma generate && tsc",
     "start": "node dist/server.js",
     "db:generate": "dotenv -e ../../.env -- prisma generate",
     "db:push": "dotenv -e ../../.env -- prisma db push",
